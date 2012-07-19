@@ -42,6 +42,15 @@ COLOR=
 MESSAGE=
 NOTIFY=0
 HOST='api.hipchat.com'
+
+if [ -e /etc/hipchat.conf ]; then
+  source /etc/hipchat.conf
+fi
+
+if [ -e ~/.hipchat.conf ]; then
+  source ~/.hipchat.conf
+fi
+
 while getopts “ht:r:f:c:o:n” OPTION; do
   case $OPTION in
     h) usage; exit 1;;
